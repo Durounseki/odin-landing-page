@@ -1,0 +1,11 @@
+.body, .header, .info, .reviews, .sign-up, .footer, .header-top, .header-body{
+    display: flex;
+}
+
+.body{
+    flex-direction: column;
+}
+
+div{
+    border-color: black;
+}
