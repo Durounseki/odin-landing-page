@@ -65,7 +65,7 @@ ul{
 
 .hero-main{
     font-size: 48px;
-    font-weight: bold;
+    font-weight: extra-bold;
     color: #F9FAF8;
 }
 
@@ -84,8 +84,7 @@ ul{
 
 .hero-picture{
     flex: 1;
-    /* height: 20vw; */
-    width: 30vw;
+    height: 20vh;
     padding: 5vh 0;
     padding-right: 2vw;
     overflow: hidden;
@@ -97,7 +96,7 @@ ul{
     height: auto;
     object-fit: cover;
     /* clip-path: inset(0px 0px 0px 0px) */
-    object-position: 0 100;
+    object-position: 0 0;
 }
 
 .info-container{
@@ -124,20 +123,21 @@ ul{
 .products {
     display: flex;
     gap: 2vw;
-    flex-wrap: wrap;
 }
 
 .product{
-    width: 150px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    text-align: center;
 }
 
 .product-picture{
-    width: 150px;
     border-radius: 10px;
+}
+
+.product-picture, .product-description{
+    justify-content: center;
+    max-width: 15vw;
 }
 
 .reviews{
