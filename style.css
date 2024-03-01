@@ -9,10 +9,8 @@ body{
 .header-container{
     display: flex;
     background-color: #1f2937;
-    min-height: 30vh;
     padding: 0 10vw;
     flex-direction: column;
-    justify-content: center;
 }
 
 .header{
@@ -138,6 +136,7 @@ ul{
 
 .review{
     font-size: 36px;
+    padding: 0 5vw;
     font-style: italic;
     font-weight: lighter;
     color: #1f2937;
@@ -149,6 +148,7 @@ ul{
     font-stretch: extra-condensed;
     font-size: 24px;
     text-align: right;
+    padding: 0 5vw;
 }
 
 .call-to-action{
