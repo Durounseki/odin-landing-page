@@ -37,8 +37,8 @@ function displayErrorMessage(input){
     input.classList.add("invalid-input");
     const errorMessage = document.createElement("p");
     errorMessage.className = "error";
-    errorMessage.textContent = "&#9888 This field is required";
-    input.parentNode.appendChild(errorDiv);
+    errorMessage.textContent = "\u26A0 This field is required";
+    input.parentNode.appendChild(errorMessage);
 }
 
 const closeIcon = document.querySelector(".close-icon");
