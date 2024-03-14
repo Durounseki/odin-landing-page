@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/sign-up-style.css">
+    <script src="../scripts/sign-up-script.js" defer></script>
+</head>
+<body>
+    <div>
+        <div class="side-image"></div>
+        <div>
+            <div>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"><path d="M 4.784 31.216 C 4.372 30.804 3.705 30.804 3.293 31.216 L 0.309 34.199 C -0.103 34.611 -0.103 35.279 0.309 35.691 C 0.721 36.103 1.389 36.103 1.801 35.691 L 4.784 32.708 C 5.196 32.296 5.196 31.628 4.784 31.216 Z M 10.751 31.216 C 10.339 30.804 9.672 30.804 9.26 31.216 L 6.276 34.199 C 5.864 34.611 5.864 35.279 6.276 35.691 C 6.688 36.103 7.356 36.103 7.768 35.691 L 10.751 32.708 C 11.163 32.296 11.163 31.628 10.751 31.216 Z M 4.784 25.249 C 4.372 24.837 3.705 24.837 3.293 25.249 L 0.309 28.232 C -0.103 28.644 -0.103 29.312 0.309 29.724 C 0.721 30.136 1.389 30.136 1.801 29.724 L 4.784 26.741 C 5.196 26.329 5.196 25.661 4.784 25.249 Z M 35.075 9.876 L 26.124 0.925 C 24.89 -0.309 22.882 -0.308 21.649 0.925 L 5.24 17.335 C 4.01 18.564 3.998 20.568 5.24 21.81 L 14.19 30.76 C 15.427 31.997 17.429 31.997 18.665 30.76 L 35.075 14.351 C 36.306 13.119 36.31 11.112 35.075 9.876 Z M 22.495 3.063 L 20.817 15.597 C 20.754 16.068 20.382 16.44 19.912 16.503 L 7.377 18.181 Z M 15.926 29.451 C 15.836 29.402 15.754 29.341 15.682 29.269 L 6.8 20.387 L 17.087 19.01 Z M 18.181 28.261 L 19.241 18.721 L 20.192 18.594 C 21.602 18.405 22.719 17.288 22.908 15.877 L 23.035 14.927 L 32.576 13.867 Z M 23.324 12.772 L 24.701 2.486 L 33.583 11.368 C 33.655 11.44 33.716 11.522 33.765 11.612 Z" fill="rgb(255, 255, 255)"></path></svg>
+                    The "optimum" choice for those who value...  convenience.
+                    Simplify your routine with a Gruel subscription.
+                    <ul>
+                        <li>Maximize your commitment to our unique formulas and save 20%</li>
+                        <li>Tailor the replenishment of your vital provisions</li>
+                        <li>Flexibility for your evolving needs. Edit, pause or cancel anytime</li>
+                        <li>Orders $100 + ship FREE</li>
+                    </ul>
+
+                </p>
+            </div>
+            <div>
+                <form action="javascript:void(0);" method="POST" id="sign-up-form">
+                    <fieldset>
+                        <legend>Become a Grueler</legend>
+                        <label for="first-name">FIRST NAME</label>
+                        <input type="text" name="first-name" id="first-name" placeholder="Ben" required minlength="1" maxlength="30">
+                        <label for="last-name">LAST NAME</label>
+                        <input type="text" name="last-name" id="last-name" placeholder="Bland" required minlength="1" maxlength="30">
+                        <label for="email">E-MAIL</label>
+                        <input type="email" name="email" id="email" placeholder="b.bland@gruel.com" required>
+                        <label for="phone-number">PHONE NUMBER</label>
+                        <input type="tel" name="phone-number" id="phone-number" placeholder="Enter your phone number">
+                        <label for="password">PASSWORD</label>
+                        <input type="password" name="password" id="password" required>
+                        <label for="password2">CONFIRM PASSWORD</label>
+                        <input type="password" name="password2" id="password2" required>
+                    </fieldset>
+                    <button type="submit" id="sign-up">Sign-up</button>
+                    <p id="login-message">Already a Grueler? <a id="log-in">Log in</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

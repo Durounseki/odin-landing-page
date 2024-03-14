@@ -1,0 +1,11 @@
+root{
+    --dark-blue: #1f2937;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Moderne Sans', sans-serif;
+    margin: 0;
+    background-color: var(--dark-blue);
+}
