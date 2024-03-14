@@ -1,7 +1,7 @@
 //Handle submission form
 const signUpForm = document.querySelector("#sign-up-form");
 const signUpButton = document.querySelector("#sign-up");
-const welcomeMessage = document.querySelector("#welcome-bg");
+const welcomeMessage = document.querySelector("#welcome-message-container");
 const inputs = signUpForm.querySelectorAll("input[required]");
 
 inputs.forEach(input => input.addEventListener('input',showValid));
