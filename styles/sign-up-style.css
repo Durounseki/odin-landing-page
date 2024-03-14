@@ -26,6 +26,16 @@ body{
     background-position: 60% 0;
 }
 
+#side-image p{
+    color: #f9faf8;
+    position: absolute;
+    top: 95%;
+    font-size: 10px;
+    text-align: center;
+    width: 30vw;
+    color: #1f2937;
+}
+
 #banner{
     width: 30vw;
     height: 20%;
@@ -71,7 +81,9 @@ body{
 
 #details-container{
     width: 90%;
-    padding: 2% 5%;
+    padding: 0 5%;
+    padding-top: 3%;
+    padding-bottom: 2%; 
     background-color: #f5f7fb;
     margin-bottom: 2vh;
     box-shadow: 0 1vh 5px #5f6977;
