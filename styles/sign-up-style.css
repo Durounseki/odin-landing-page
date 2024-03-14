@@ -1,11 +1,119 @@
-root{
+:root{
     --dark-blue: #1f2937;
 }
+
 body{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+    height: 100vh;
     font-family: 'Moderne Sans', sans-serif;
     margin: 0;
-    background-color: var(--dark-blue);
+    border: 0;
+    padding: 0;
+    background: var(--dark-blue);
+}
+
+#page-wrapper{
+    display: flex;
+    padding: 0 10vw;
+}
+
+#side-image{
+    width: 30vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("../images/patricia-prudente--P2djqAwM8U-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 60% 0;
+}
+
+#text-container{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5E7EB;
+}
+
+#call-for-action{
+    padding: 0 5%;
+    margin-bottom: 2vh;
+}
+
+#call-for-action h1{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    gap: 1vw;
+}
+
+#call-for-action p{
+    padding-left: 50px;
+    color: #1f2937;
+}
+
+#form-container{
+    width: 100%;
+}
+
+#details-container{
+    width: 90%;
+    padding: 2% 5%;
+    background-color: #f5f7fb;
+    margin-bottom: 2vh;
+}
+
+#details{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    justify-content: center;
+}
+
+.field{
+    display: flex;
+    justify-content: left;
+    gap: 2vw;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+input{
+    border: solid #E5E7EB;
+}
+
+legend{
+    font-size: 18px;
+    margin-bottom: 2vh;
+}
+
+label{
+    font-size: 10px;
+    color: #1f2937; 
+}
+
+#signup-container{
+    display: flex;
+    flex-direction: column;
+    gap:1vh;
+    padding: 0 5%;
+}
+
+#sign-up{
+    width: 100px;
+    height: 30px;
+    background-color: #3882f6;
+    color: #E5E7EB;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+}
+
+a{
+    color: #1f2937;
 }

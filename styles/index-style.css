@@ -180,7 +180,6 @@ ul{
     white-space: nowrap;
     align-self: center;
     background-color: #3882f6;
-    border-color: #E5E7EB;
     color: #E5E7EB;
     border-radius: 5px;
     border: 2px solid #E5E7EB;
@@ -206,4 +205,9 @@ ul{
     width: 2vh;
     height: 2vh;
     filter: invert(90%);
+}
+
+a{
+    text-decoration: none;
+    color: #e5e7eb;
 }
