@@ -45,7 +45,7 @@ body{
     color: #f9faf8;
     display: flex;
     justify-content: center;
-    font-size: 36px;
+    font-size: 48px;
     align-items: center;
 }
 
@@ -85,7 +85,7 @@ body{
     padding-top: 3%;
     padding-bottom: 2%; 
     background-color: #f5f7fb;
-    margin-bottom: 2vh;
+    margin-bottom: 4vh;
     box-shadow: 0 1vh 5px #5f6977;
 }
 
@@ -101,12 +101,14 @@ body{
     display: flex;
     justify-content: left;
     gap: 2vw;
+    flex-wrap: wrap;
 }
 
 .input-group{
     display: flex;
     flex-direction: column;
     width: 40%;
+    min-width: 150px;
 }
 
 input{
@@ -134,7 +136,7 @@ label{
 #sign-up{
     width: 100px;
     height: 30px;
-    background-color: #3882f6;
+    background-color: var(--dark-blue);
     color: #E5E7EB;
     border-radius: 5px;
     border: none;
@@ -143,4 +145,78 @@ label{
 
 a{
     color: #1f2937;
+}
+
+:focus{
+    border: solid #3882f6;
+}
+
+input:invalid{
+    /* border: solid #f68238; */
+    border: solid #E5E7EB;
+}
+
+
+#welcome-message-container{
+    display: none;
+    flex-direction: column;
+    background-color: #E5E7EB;
+    box-shadow: 1vw 1vh 5px #5f6977;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40vw;
+    height: 30vh;
+    transform: translate(-50%,-50%);
+    border-radius: 2%;
+}
+
+#welcome-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome-message h1{
+    font-size: 24px;
+}
+#welcome-message p{
+    margin-top: 0;
+    margin-bottom: 5vh;
+}
+
+#shop-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shop-button{
+    width: 100px;
+    height: 30px;
+    background-color: var(--dark-blue);
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    margin-bottom: 2vh;
+}
+
+#shop-button a{
+    color: #E5E7EB;
+    text-decoration: none;
+}
+
+.close-icon{
+    padding: 1vw 1vh;
+}
+.close-icon img{
+    width: 2vw;
+}
+
+.error{
+    font-size: 10px;
+    color: #f68238;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
