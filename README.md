@@ -10,4 +10,4 @@ The Sign up form is the result of the first assignment in TOP's Intermediate HTM
 ## Acknowledgements
 
 * All the icons are courtesy of [__Flaticon__](https://www.flaticon.com/).
-* Photo on the sign up page is courtesy of [__Patricia Prudente__](https://www.instagram.com/apsprudente/) on [__Unsplash__](https://unsplash.com/). 
+* Photo on the sign up page is courtesy of [__Patricia Prudente__](https://www.instagram.com/apsprudente/) on [__Unsplash__](https://unsplash.com/).
