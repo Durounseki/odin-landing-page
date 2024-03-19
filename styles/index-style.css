@@ -127,6 +127,10 @@ ul{
     border-radius: 10px;
 }
 
+.product-picture:hover{
+    transform: scale(1.05);
+}
+
 .reviews{
     background-color: #E5E7EB;
     justify-content: center;

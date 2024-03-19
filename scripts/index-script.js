@@ -4,3 +4,9 @@ gitIcon.addEventListener('click',() => {
     const newWindow = window.open(gitURL,'_blank');
     newWindow.opener = nul;
 } );
+
+const products = document.querySelectorAll(".product-picture");
+products.forEach(product => product.addEventListener('click', () => {
+    window.location.href = './pages/shop-gruel.html';
+}
+));
