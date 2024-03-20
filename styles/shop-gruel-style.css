@@ -4,7 +4,6 @@ body{
     flex-direction: column;
     font-family: 'Moderne Sans', sans-serif;
     margin: 0;
-    position: relative;
 }
 
 /* Header */
@@ -75,6 +74,15 @@ ul{
     color: #1f2937;
 }
 
+.tab:hover{
+    background-color: #85878b;
+}
+
+.tab.active{
+    background-color: #3882f6;
+    color: #E5E7EB;
+}
+
 #shopping-cart{
     width: 20px;
     height: 20px;
@@ -84,16 +92,17 @@ ul{
 #products-container{
     padding: 0 10vw;
     background-color: #E5E7EB;
+    overflow-y: auto;
 }
 
 #product-container{
     margin: 15px;
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-columns: 2fr 3fr 1fr;
     border-radius: 20px;
-    gap: 1vw;
+    gap: 3vw;
     background-color: white;
-    padding: 15px;
+    padding: 15px 30px;
     h2{
         text-align: center;
     }
@@ -107,6 +116,31 @@ ul{
 
 .product-description{
     padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        margin-bottom: 0;
+    }
+
+    :nth-child(3){
+        margin: 0;
+    }
+    :nth-child(4){
+        margin: 0;
+    }
+
+    :nth-child(5){
+        font-weight: lighter;
+    }
+    :nth-child(6){
+        margin-top: auto;
+    }
+    :nth-child(7){
+        font-size: 10px;
+        text-align: center;
+    }
 }
 
 .product-header{
@@ -124,13 +158,47 @@ ul{
     }
 }
 
+.product-links{
+    
+    font-size: 12px;
+    color:#3882f6;
+    :hover{
+        color:#0852c6;
+    }
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+    
+}
+
+.product-facts{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    div{
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        align-items: center;
+        img{
+            width: 20px;
+            height: 20px;
+        }
+        p{
+            font-size: 14px;
+            font-weight: lighter;
+            margin: 0;
+        }
+    }
+}
+
 #footer{
     background-color: #1f2937;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 12vw;
-    top: 0;
 }
 
 #shopping-info{
