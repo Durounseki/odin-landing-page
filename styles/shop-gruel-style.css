@@ -97,7 +97,11 @@ ul{
     flex: 1;
 }
 
-#product-container{
+.product-container{
+    display: none;
+}
+
+.product-container.active{
     margin: 15px;
     display: grid;
     grid-template-columns: 2fr 3fr 1fr;
@@ -109,7 +113,6 @@ ul{
         text-align: center;
     }
 }
-
 
 .product-picture{
     width: 100%;
@@ -196,7 +199,11 @@ ul{
     }
 }
 
-#flavors{
+.flavors{
+    display: none;
+}
+
+.flavors.active{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;

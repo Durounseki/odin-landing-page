@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gruel|Shop-Gruel</title>
     <link rel="stylesheet" href="../styles/shop-gruel-style.css">
+    <script src="../scripts/shop-gruel-script.js" defer></script>
 </head>
 <body>
     <div id="header-container">
@@ -26,16 +27,17 @@
 
         <div id="tabs-container">
             <div id="tabs">
-                <div class="tab active">White edition</div>
-                <div class="tab">Classic</div>
-                <div class="tab">On-the-go</div>
-                <div class="tab">Bars</div>
+                <div class="tab active" name="white-edition">White edition</div>
+                <div class="tab" name="classic">Classic</div>
+                <div class="tab" name="on-the-go">On-the-go</div>
+                <div class="tab" name="bars">Bars</div>
             </div>
             <img id="shopping-cart" src="../images/shopping-cart.png">
         </div>
     </div>
     <div id="products-container">
-        <div id="product-container">
+        <!-- White edition -->
+        <div class="product-container active" name="white-edition">
             <div class="product-picture-container">
                 <h2>Super High Protein</h2>
                 <img class="product-picture" src="../images/white.jpeg" alt="Gruel white edition">
@@ -83,15 +85,15 @@
                 </div>
             </div>
         </div>
-
-        <div id="flavors">
+        
+        <div class="flavors active" name="white-edition">
             <div class="flavor">
                 <div style="background-color: #fdf5e6;"></div>
                 <div class="product-details"> 
                     <p>$49.99 per bag (20 meals)</p>
                     <p>Vanilla</p>
                 </div>
-                <svg class="add-button" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+                <svg class="add-button" data-price="49.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
             </div>
             <div class="flavor">
                 <div style="background-color: #7b3f00;"></div>
@@ -99,7 +101,7 @@
                     <p>$49.99 per bag (20 meals)</p>
                     <p>Chocolate</p>
                 </div>
-                <svg class="add-button" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+                <svg class="add-button" data-price="49.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
             </div>
             <div class="flavor">
                 <div style="background-color: #ffc0cb;"></div>
@@ -107,7 +109,7 @@
                     <p>$49.99 per bag (20 meals)</p>
                     <p>Strawberry Cream</p>
                 </div>
-                <svg class="add-button" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+                <svg class="add-button" data-price="49.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
             </div>
             <div class="flavor">
                 <div style="background-color: #ffd700;"></div>
@@ -115,7 +117,7 @@
                     <p>$49.99 per bag (20 meals)</p>
                     <p>Banana</p>
                 </div>
-                <svg class="add-button" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+                <svg class="add-button" data-price="49.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
             </div>
             <div class="flavor">
                 <div style="background-color: #755139;"></div>
@@ -123,7 +125,7 @@
                     <p>$52.99 per bag (20 meals)</p>
                     <p>Salted Caramel</p>
                 </div>
-                <svg class="add-button" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+                <svg class="add-button" data-price="52.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
             </div>
             <div class="flavor">
                 <div style="background-color: #f8f8ff;"></div>
@@ -131,7 +133,286 @@
                     <p>$52.99 per bag (20 meals)</p>
                     <p>Natural</p>
                 </div>
-                <svg class="add-button" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+                <svg class="add-button" data-price="52.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+        </div>
+
+        <!-- Classic -->
+        <div class="product-container" name="classic">
+            <div class="product-picture-container">
+                <h2>The OG Gruel</h2>
+                <img class="product-picture" src="../images/classic.jpeg" alt="Gruel white edition">
+            </div>
+            <div class="product-description">
+                <div class="product-header">
+                    <p>ANIMAL-FREE GMO-FREE HUMAN-KIND</p>
+                </div>
+                <h1>Gruel Classic</h1>
+                <p>From $39.99 per bag (20 meals)</p>
+                <p>$1.99 per meal (150kcal)</p>
+                <p>Your healthiest meal in seconds. A complete, balanced meal packed with essential proteins, carbs, fats, fiber, vitamins, and minerals.</p>
+                <div class="product-links">
+                    <div><a>DETAILS</a></div>
+                    <div><a>NUTRITIONAL INFORMATION</a></div>
+                </div>
+                <div class="product-footer">
+                    Over 100 million meals sold worldwide
+                </div>
+            </div>
+            <div class="product-facts">
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>20g protein</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>100% ethically sourced</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>High in fiber</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>Contains probiotics</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>4 essential aminoacids</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>Spend over $130 and save an extra 10%</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flavors" name="classic">
+            <div class="flavor">
+                <div style="background-color: #fdf5e6;"></div>
+                <div class="product-details"> 
+                    <p>$39.99 per bag (20 meals)</p>
+                    <p>Vanilla</p>
+                </div>
+                <svg class="add-button" data-price="39.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #7b3f00;"></div>
+                <div class="product-details">
+                    <p>$39.99 per bag (20 meals)</p>
+                    <p>Chocolate</p>
+                </div>
+                <svg class="add-button" data-price="39.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #ffc0cb;"></div>
+                <div class="product-details">
+                    <p>$39.99 per bag (20 meals)</p>
+                    <p>Strawberry Cream</p>
+                </div>
+                <svg class="add-button" data-price="39.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #ffd700;"></div>
+                <div class="product-details">
+                    <p>$39.99 per bag (20 meals)</p>
+                    <p>Banana</p>
+                </div>
+                <svg class="add-button" data-price="39.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #755139;"></div>
+                <div class="product-details">
+                    <p>$42.99 per bag (20 meals)</p>
+                    <p>Salted Caramel</p>
+                </div>
+                <svg class="add-button" data-price="42.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #f8f8ff;"></div>
+                <div class="product-details">
+                    <p>$42.99 per bag (20 meals)</p>
+                    <p>Natural</p>
+                </div>
+                <svg class="add-button" data-price="42.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #8ca187;"></div>
+                <div class="product-details">
+                    <p>$42.99 per bag (20 meals)</p>
+                    <p>Matcha</p>
+                </div>
+                <svg class="add-button" data-price="42.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #f5f5dc;"></div>
+                <div class="product-details">
+                    <p>$39.99 per bag (20 meals)</p>
+                    <p>Coconut</p>
+                </div>
+                <svg class="add-button" data-price="39.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+        </div>
+
+        <!-- On-the-go -->
+        <div class="product-container" name="on-the-go">
+            <div class="product-picture-container">
+                <h2>Waste no time</h2>
+                <img class="product-picture" src="../images/drink.jpeg" alt="Gruel white edition">
+            </div>
+            <div class="product-description">
+                <div class="product-header">
+                    <p>ANIMAL-FREE GMO-FREE HUMAN-KIND</p>
+                </div>
+                <h1>Gruel On-the-Go</h1>
+                <p>From $59.99 per box (12 bottles)</p>
+                <p>$4.99 per meal (200kcal)</p>
+                <p>Your busy day's perfect meal. Ready-to-drink, complete nutrition with all the essentials: vitamins, minerals, carbs, protein, fat, and fiber.</p>
+                <div class="product-links">
+                    <div><a>DETAILS</a></div>
+                    <div><a>NUTRITIONAL INFORMATION</a></div>
+                </div>
+                <div class="product-footer">
+                    Over 100 million meals sold worldwide
+                </div>
+            </div>
+            <div class="product-facts">
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>20g protein</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>100% ethically sourced</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>Contains probiotics</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>27 essential vitamins & minerals</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>Omega 3 and 6</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>Spend over $130 and save an extra 10%</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flavors" name="on-the-go">
+            <div class="flavor">
+                <div style="background-color: #fdf5e6;"></div>
+                <div class="product-details"> 
+                    <p>$59.99 per box (12 bottles)</p>
+                    <p>Vanilla</p>
+                </div>
+                <svg class="add-button" data-price="59.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #7b3f00;"></div>
+                <div class="product-details">
+                    <p>$59.99 per box (12 bottles)</p>
+                    <p>Chocolate</p>
+                </div>
+                <svg class="add-button" data-price="59.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #ffc0cb;"></div>
+                <div class="product-details">
+                    <p>$59.99 per box (12 bottles)</p>
+                    <p>Strawberry Cream</p>
+                </div>
+                <svg class="add-button" data-price="59.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #ffd700;"></div>
+                <div class="product-details">
+                    <p>$59.99 per box (12 bottles)</p>
+                    <p>Banana</p>
+                </div>
+                <svg class="add-button" data-price="59.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+        </div>
+
+        <!-- Bars -->
+        <div class="product-container" name="bars">
+            <div class="product-picture-container">
+                <h2>Super High Protein</h2>
+                <img class="product-picture" src="../images/bar.jpeg" alt="Gruel white edition">
+            </div>
+            <div class="product-description">
+                <div class="product-header">
+                    <p>ANIMAL-FREE GMO-FREE HUMAN-KIND</p>
+                </div>
+                <h1>Complete meal in one snack</h1>
+                <p>From $23.99 per bag (12 bars)</p>
+                <p>$1.99 per bar (200kcal)</p>
+                <p>Sink your teeth into deliciousness. Layers of smooth caramel and rich chocolate, packed with high-protein power – nothing else.</p>
+                <div class="product-links">
+                    <div><a>DETAILS</a></div>
+                    <div><a>NUTRITIONAL INFORMATION</a></div>
+                </div>
+                <div class="product-footer">
+                    Over 100 million meals sold worldwide
+                </div>
+            </div>
+            <div class="product-facts">
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>15g protein</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>100% ethically sourced</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>Natural flavors</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>No saturated fat</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>Low sugar</p>
+                </div>
+                <div class="fact">
+                    <img class="check" src="../images/check-circle.svg">
+                    <p>Spend over $130 and save an extra 10%</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flavors" name="bars">
+            <div class="flavor">
+                <div style="background-color: #755139;"></div>
+                <div class="product-details">
+                    <p>$25.99 per box (12 bars)</p>
+                    <p>Salted Caramel</p>
+                </div>
+                <svg class="add-button" data-price="25.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #4f3c33;"></div>
+                <div class="product-details">
+                    <p>$23.99 per box (12 bars)</p>
+                    <p>Chocolate Brownie</p>
+                </div>
+                <svg class="add-button" data-price="23.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
+            </div>
+            <div class="flavor">
+                <div style="background-color: #dac0a0;"></div>
+                <div class="product-details">
+                    <p>$23.99 per box (12 bars)</p>
+                    <p>Crunchy Peanut Butter</p>
+                </div>
+                <svg class="add-button" data-price="23.99" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M19,0H5C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h14c2.757,0,5-2.243,5-5V5c0-2.757-2.243-5-5-5Zm-3,13h-3v3c0,.553-.448,1-1,1s-1-.447-1-1v-3h-3c-.552,0-1-.447-1-1s.448-1,1-1h3v-3c0-.553,.448-1,1-1s1,.447,1,1v3h3c.552,0,1,.447,1,1s-.448,1-1,1Z"/></svg>
             </div>
         </div>
 
