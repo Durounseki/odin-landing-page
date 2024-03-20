@@ -4,6 +4,7 @@ body{
     flex-direction: column;
     font-family: 'Moderne Sans', sans-serif;
     margin: 0;
+    padding: 0;
 }
 
 /* Header */
@@ -93,6 +94,7 @@ ul{
     padding: 0 10vw;
     background-color: #E5E7EB;
     overflow-y: auto;
+    flex: 1;
 }
 
 #product-container{
@@ -176,6 +178,7 @@ ul{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    gap: 5px;
     div{
         display: flex;
         justify-content: flex-start;
@@ -193,12 +196,63 @@ ul{
     }
 }
 
+#flavors{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+.flavor{
+    padding: 10px 0;
+    padding-right: 15px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    p{
+        margin: 0;
+    }
+    p:first-child{
+        font-size: 10px;
+    }
+    p:last-child{
+        font-weight: bold;
+    }
+}
+
+.flavor div:first-child{
+    width: 10px;
+    height: 90%;
+    align-self: center;
+    border-radius: 5px;
+    transform: translateX(-5px);
+    margin-right: 15px;
+}
+
+.product-details{
+    flex:1;
+}
+
+.add-button{
+    width: 40px;
+    height: 40px;
+    margin: 10px 0;
+}
+
+.add-button:hover{
+    fill: #3882f6;
+}
+
 #footer{
     background-color: #1f2937;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 12vw;
+    justify-self: flex-end;
 }
 
 #shopping-info{
@@ -206,14 +260,29 @@ ul{
     display: flex;
     align-items: center;
     gap: 15px;
+    p:last-child{
+        font-size: 12px;
+        text-align: right;
+        color: #85878b;
+        margin-top: 0;
+    }
 }
 
-.button{
-    background-color: #3882f6;
+#total{
+    font-size: 16px;
+    color:#e5e7eb;
+    text-align: right;
+    margin-bottom: 0; 
+}
+
+#continue-button{
+    background-color: #85878b;
     border: none;
     color: #E5E7EB;
     border-radius: 5px;
     padding: 15px 20px;
     font-size: 18px;
+    margin: 15px 0;
     /* height: 16px; */
 }
+
