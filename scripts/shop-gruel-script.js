@@ -41,10 +41,68 @@ function clearContainer(){
 }
 
 // Shopping cart object
-const shoppingCart = {}
+const shoppingCart = {
+    //An array to keep track of the products added to the shoppingCart
+    addedProducts: [],
+    totalPrice: 0,
+    calculateTotal: function() {
+        let totalPrice = 0;
+        totalPrice = this.addedProducts.reduce((total,product) => {
+            return total + (product.price * product.quantity);
+        },0);
+        return totalPrice;
+    }
+}
 
 // Product object constructor
-function product(name,flavor){
+function product(name,price,flavor){
     this.name = name;
+    this.price = price;
     this.flavor = flavor;
+    this.quantity = 1;
+}
+
+const addButtons = document.querySelectorAll('.add-button');
+addButtons.forEach(button => button.addEventListener('click',addProduct));
+
+function addProduct(event){
+    const button = event.target;
+    const details = getProductDetails(button);
+    manageShoppingCart(details);
+}
+
+function getProductDetails(button){
+    //Look for the flavor container
+    const flavorContainer = button.closest('.flavor');
+    //Look for the name of the product
+    const name = flavorContainer.closest('.flavors').getAttribute('name');
+    //Look for the price
+    const priceText = flavorContainer.querySelector('.product-details p:first-child').textContent;
+    //Extract the numbers and round to 2 decimal points
+    const price = parseFloat(priceText.replace(/[^0-9.]/g, '')).toFixed(2); 
+    //Look for the flavor
+    const flavor = flavorContainer.querySelector('.product-details p:last-child').textContent;
+    // //update quantity
+    // const quantityInput = button.closest('input');
+    // const quantity = quantityInput.value;
+
+    return {name,price,flavor}
+}
+
+function manageShoppingCart(details){
+    //Check if product already exist on the shopping cart
+    //if it does, then increase quantity, otherwise add product
+    const existingProduct = shoppingCart.addedProducts.find(product => 
+        product.name === details.name && product.flavor === details.flavor
+    );
+    
+    if(existingProduct){
+        existingProduct.quantity++;
+    }else{
+        const newProduct = new product(details.name, details.price, details.flavor);
+        shoppingCart.addedProducts.push(newProduct);
+    }
+    //Update the total price
+    shoppingCart.totalPrice=shoppingCart.calculateTotal();
+    console.log(shoppingCart);
 }
