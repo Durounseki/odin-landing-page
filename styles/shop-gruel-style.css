@@ -243,14 +243,39 @@ ul{
     flex:1;
 }
 
-.add-button{
+#dummy-button{
+    display: none;
+}
+
+.add-button, .remove-button{
     width: 40px;
     height: 40px;
     margin: 10px 0;
 }
 
-.add-button:hover{
+.add-button:hover, .remove-button:hover{
     fill: #3882f6;
+}
+
+/* Controls container */
+.controls{
+    display: flex;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+input.control{
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    padding: 6px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #E5E7EB;
+    text-align: center;
+
 }
 
 #footer{
