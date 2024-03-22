@@ -119,6 +119,8 @@ function manageShoppingCart(details){
     }
     //Update the total price
     shoppingCart.totalPrice=shoppingCart.calculateTotal();
+    updateShoppingCartDisplay(details);
+    // updateFooter();
     console.log(shoppingCart);
 }
 
@@ -133,7 +135,7 @@ function showControls(button){
     quantityInput.classList.add('control');
     quantityInput.value = 1;
     //Use the dummy button to create a copy an insert on the corresponding flavor element
-    const removeButton = document.querySelector('#dummy-button').cloneNode(true); //true makes a deepcopy of the element.
+    const removeButton = document.querySelector('#dummy-minus').cloneNode(true); //true makes a deepcopy of the element.
     removeButton.removeAttribute('id');
     removeButton.classList.add('remove-button');
     //Add listeners to modify the number of items to add to the shopping cart
@@ -192,4 +194,76 @@ function hideControls(element){
     parentElement.removeChild(addButton);
     container.removeChild(parentElement);
     container.appendChild(addButton);
+}
+
+// //display shopping cart
+const shoppingCartDisplay = document.querySelector('#shopping-cart-display');
+function getNameString(name){
+    const words = name.split('-');
+    const capitalizedName = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    return capitalizedName.join(" ");
+}
+
+function updateShoppingCartDisplay(details){
+    
+}
+
+function SCaddNewProduct(){
+    const imageContainer = document.querySelector(
+        `.product-container[name=${details.name}]`
+        );
+    //Copy image and remove style
+    const productImage = imageContainer.querySelector('img').cloneNode(true);
+    productImage.classList.remove('product-picture');
+    productImage.style.height = '100%';
+    productImage.style.borderRadius = '10px';
+    //Create container and controls
+    const container = document.createElement('div');
+    container.style.display = 'flex';
+    container.style.height = '50px';
+    container.style.gap = "5px";
+    container.style.alignItems = 'center';
+    //Details
+    const detailsContainer = document.createElement('div');
+    detailsContainer.style.display = 'flex';
+    detailsContainer.style.flexDirection = 'column';
+    detailsContainer.style.justifyContent = 'flex-start';
+    detailsContainer.style.gap = '5px';
+    const flavorP = document.createElement('p');
+    flavorP.style.margin = '0';
+    flavorP.style.fontSize = '10px';
+    flavorP.style.color = '#1f2937';
+    flavorP.textContent = getNameString(details.name)+": "+details.flavor;
+    const controls = document.createElement('div');
+    controls.classList.add('controls');
+    controls.style.height = '40px';
+    const addButton = document.querySelector("#dummy-plus").cloneNode(true);
+    addButton.removeAttribute('id');
+    addButton.classList.add('add-button');
+    addButton.addEventListener('click',modifyQuantity);
+    addButton.style.margin = '0';
+    const removeButton = document.querySelector("#dummy-minus").cloneNode(true);
+    removeButton.removeAttribute('id');
+    removeButton.classList.add('remove-button');
+    removeButton.style.margin = '0';
+    removeButton.addEventListener('click',modifyQuantity);
+    const inputElement = document.createElement('input');
+    inputElement.classList.add('control');
+    inputElement.value = details.quantity;
+    inputElement.style.margin = '0';
+    inputElement.addEventListener('change',updateQuantity);
+    const priceP = document.createElement('p');
+    priceP.style.margin = '0';
+    priceP.style.fontSize = '14px';
+    priceP.style.color = '#1f2937';
+    priceP.textContent = '$'+details.price;
+    controls.appendChild(removeButton);
+    controls.appendChild(inputElement);
+    controls.appendChild(addButton);
+    detailsContainer.appendChild(flavorP);
+    detailsContainer.appendChild(controls);
+    container.appendChild(productImage);
+    container.appendChild(detailsContainer);
+    container.appendChild(priceP);
+    shoppingCartDisplay.appendChild(container);
 }
