@@ -290,9 +290,33 @@ function updateAddedProduct(productIndex,details){
     }
 }
 
+const footerInfo = document.querySelectorAll('#info p');
+
 function displayTotal(){
-    const totalPrice = shoppingCartDisplay.querySelectorAll('#total-price p')[1];
-    totalPrice.textContent = "$"+shoppingCart.totalPrice;
+    const totalPrice = shoppingCart.totalPrice
+    // //Show total on shopping cart
+    const totalPriceDisplay = shoppingCartDisplay.querySelectorAll('#total-price p')[1];
+    totalPriceDisplay.textContent = "$"+totalPrice;
+
+    // //Display total on footer
+    footerInfo[0].textContent = "$"+totalPrice;
+
+    if(totalPrice < 70){
+        footerInfo[1].textContent = "SPEND $70 TO GET FREE SHIPPING";
+        footerInfo[1].style.color = "#85878b";
+        footerInfo[2].style.color = "#85878b";
+        footerInfo[2].textContent = "";
+    }else if(totalPrice < 130){
+        footerInfo[1].textContent = "FREE SHIPPING";
+        footerInfo[1].style.color = "#e5e7eb";
+        footerInfo[2].style.color = "#85878b";
+        footerInfo[2].textContent = "SPEND $130 TO GET 10% OFF";
+    }else if(totalPrice > 130){
+        const discountedPrice = totalPrice * 0.9;
+        footerInfo[0].innerHTML = `<span class="strikethrough">$${totalPrice}</span> $${discountedPrice}`
+        footerInfo[2].textContent = "YOU GOT 10% OFF"
+        footerInfo[2].style.color = "#e5e7eb";
+    }
 }
 
 const shoppingCartButton = document.querySelector('#shopping-cart');

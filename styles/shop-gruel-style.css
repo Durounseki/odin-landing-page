@@ -439,11 +439,14 @@ input.control{
     display: flex;
     align-items: center;
     gap: 15px;
-    p:last-child{
+    p:nth-child(2), p:nth-child(3){
         font-size: 12px;
         text-align: right;
         color: #85878b;
         margin-top: 0;
+    }
+    p:nth-child(2){
+        margin-bottom: 0;
     }
 }
 
@@ -452,6 +455,10 @@ input.control{
     color:#e5e7eb;
     text-align: right;
     margin-bottom: 0; 
+}
+
+.reward{
+    color:#e5e7eb;
 }
 
 #continue-button{
@@ -465,3 +472,6 @@ input.control{
     /* height: 16px; */
 }
 
+.strikethrough{
+    text-decoration: line-through;
+}
