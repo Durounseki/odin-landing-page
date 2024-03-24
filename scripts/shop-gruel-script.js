@@ -122,6 +122,7 @@ function manageShoppingCart(details){
     }
     //Update the total price
     shoppingCart.totalPrice=shoppingCart.calculateTotal();
+    displayTotal();
     // updateShoppingCartDisplay(details);
     // updateFooter();
     console.log(shoppingCart);
@@ -287,5 +288,9 @@ function updateAddedProduct(productIndex,details){
             addedProducts.appendChild(addedProductDummy);
         }
     }
+}
 
+function displayTotal(){
+    const totalPrice = shoppingCartDisplay.querySelectorAll('#total-price p')[1];
+    totalPrice.textContent = "$"+shoppingCart.totalPrice;
 }
