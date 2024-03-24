@@ -110,6 +110,7 @@ function manageShoppingCart(details){
         //If quantity = 0, remove product, otherwise update quantity
         if(details.quantity > 0){
             shoppingCart.addedProducts[productIndex].quantity = details.quantity;
+            updateShoppingCartDisplay(details);
         }else{
             shoppingCart.addedProducts.splice(productIndex,1); // Remove item
         }
@@ -203,6 +204,7 @@ function hideControls(element){
 const shoppingCartDisplay = document.querySelector('#shopping-cart-display');
 const addedProductDummy = document.querySelector('#product-placeholder')
 const addedProducts = document.querySelector('#added-products');
+
 function getNameString(name){
     const words = name.split('-');
     const capitalizedName = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
@@ -233,6 +235,11 @@ function newProductInDisplay(details){
     //Clone product container
     const addedProduct = addedProductDummy.cloneNode(true);
     addedProduct.removeAttribute('id');
+
+    //Remove dummy container
+    if(addedProducts.contains(addedProductDummy)){
+        addedProducts.removeChild(addedProductDummy);
+    }
 
     //Replace image
     const imageContainer = addedProduct.querySelector('.added-product-image-container');
