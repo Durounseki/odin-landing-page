@@ -110,10 +110,10 @@ function manageShoppingCart(details){
         //If quantity = 0, remove product, otherwise update quantity
         if(details.quantity > 0){
             shoppingCart.addedProducts[productIndex].quantity = details.quantity;
-            updateShoppingCartDisplay(details);
         }else{
             shoppingCart.addedProducts.splice(productIndex,1); // Remove item
         }
+        updateAddedProduct(productIndex,details);
     }else{ //Add new product to shopping cart
         const newProduct = new product(details.name, details.price, details.flavor);
         shoppingCart.addedProducts.push(newProduct);
@@ -271,6 +271,21 @@ function newProductInDisplay(details){
     
 }
 
-function updateShoppingCartDisplay(details){
-    
+function updateAddedProduct(productIndex,details){
+    const addedProduct = addedProducts.children[productIndex];
+    if(details.quantity > 0){
+        //Update quantity
+    const quantityInput=addedProduct.querySelector('input');
+    quantityInput.value = details.quantity
+    //Update subtotal
+    const subtotal = addedProduct.querySelectorAll('.display-price p')[1];
+    subtotal.textContent = "$"+ (details.price*details.quantity);
+    }else{
+        addedProducts.removeChild(addedProduct);
+        //If the cart is empty add the dummy container
+        if(shoppingCart.addedProducts.length === 0){
+            addedProducts.appendChild(addedProductDummy);
+        }
+    }
+
 }
