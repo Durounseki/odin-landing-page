@@ -116,10 +116,12 @@ function manageShoppingCart(details){
     }else{ //Add new product to shopping cart
         const newProduct = new product(details.name, details.price, details.flavor);
         shoppingCart.addedProducts.push(newProduct);
+        //Display new product in shopping cart
+        newProductInDisplay(details);
     }
     //Update the total price
     shoppingCart.totalPrice=shoppingCart.calculateTotal();
-    updateShoppingCartDisplay(details);
+    // updateShoppingCartDisplay(details);
     // updateFooter();
     console.log(shoppingCart);
 }
@@ -132,6 +134,7 @@ function showControls(button){
     wrapper.classList.add('controls');
     //Create an input to select the quantity of each product to add to the shopping cart
     const quantityInput = document.createElement('input');
+    quantityInput.name = "quantity";
     quantityInput.classList.add('control');
     quantityInput.value = 1;
     //Use the dummy button to create a copy an insert on the corresponding flavor element
@@ -198,72 +201,69 @@ function hideControls(element){
 
 // //display shopping cart
 const shoppingCartDisplay = document.querySelector('#shopping-cart-display');
+const addedProductDummy = document.querySelector('#product-placeholder')
+const addedProducts = document.querySelector('#added-products');
 function getNameString(name){
     const words = name.split('-');
     const capitalizedName = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
     return capitalizedName.join(" ");
 }
 
-function updateShoppingCartDisplay(details){
+const productImageFiles = {
+    "white-edition":"white", 
+    "classic": "classic",
+    "on-the-go": "drink",
+    "bars": "bar"
+}
+const flavorColors = {
+    "Vanilla": "#fdf5e6",
+    "Chocolate": "#7b3f00",
+    "Strawberry Cream": "#ffc0cb",
+    "Banana": "#ffd700",
+    "Salted Caramel": "#755139",
+    "Natural": "#f8f8ff",
+    "Matcha": "#8ca187",
+    "Coconut": "#f5f5dc",
+    "Chocolate Brownie": "#4f3c33",
+    "Crunchy Peanut Butter": "#dac0a0"
+}
+
+function newProductInDisplay(details){
+
+    //Clone product container
+    const addedProduct = addedProductDummy.cloneNode(true);
+    addedProduct.removeAttribute('id');
+
+    //Replace image
+    const imageContainer = addedProduct.querySelector('.added-product-image-container');
+    productImage = document.createElement('img');
+    productImage.classList.add('added-product-image');
+    productImage.style.borderColor = `${flavorColors[details.flavor]}`;
+    const filename = "../images/"+productImageFiles[details.name]+".jpeg";
+    productImage.src = filename;
+    productImage.alt = "Gruel"+productImageFiles[details.name];
+    const dummyButton = imageContainer.querySelector('svg');
+    imageContainer.removeChild(dummyButton);
+    imageContainer.appendChild(productImage);
+
+    //Replace product details
+    const addedProductDetails = addedProduct.querySelectorAll('.name-and-flavor p');
+    addedProductDetails[0].textContent = getNameString(details.name)+":";
+    addedProductDetails[1].textContent = details.flavor;
+
+    //Show quantity
+    const quantityInput = addedProduct.querySelector('input');
+    quantityInput.value = details.quantity;
+
+    //Show price
+    const priceTag = addedProduct.querySelectorAll('.display-price p');
+    priceTag[0].textContent = "$"+details.price+" per item";
+    priceTag[1].textContent = "$"+ (details.price*details.quantity);
+
+    addedProducts.appendChild(addedProduct);
     
 }
 
-function SCaddNewProduct(){
-    const imageContainer = document.querySelector(
-        `.product-container[name=${details.name}]`
-        );
-    //Copy image and remove style
-    const productImage = imageContainer.querySelector('img').cloneNode(true);
-    productImage.classList.remove('product-picture');
-    productImage.style.height = '100%';
-    productImage.style.borderRadius = '10px';
-    //Create container and controls
-    const container = document.createElement('div');
-    container.style.display = 'flex';
-    container.style.height = '50px';
-    container.style.gap = "5px";
-    container.style.alignItems = 'center';
-    //Details
-    const detailsContainer = document.createElement('div');
-    detailsContainer.style.display = 'flex';
-    detailsContainer.style.flexDirection = 'column';
-    detailsContainer.style.justifyContent = 'flex-start';
-    detailsContainer.style.gap = '5px';
-    const flavorP = document.createElement('p');
-    flavorP.style.margin = '0';
-    flavorP.style.fontSize = '10px';
-    flavorP.style.color = '#1f2937';
-    flavorP.textContent = getNameString(details.name)+": "+details.flavor;
-    const controls = document.createElement('div');
-    controls.classList.add('controls');
-    controls.style.height = '40px';
-    const addButton = document.querySelector("#dummy-plus").cloneNode(true);
-    addButton.removeAttribute('id');
-    addButton.classList.add('add-button');
-    addButton.addEventListener('click',modifyQuantity);
-    addButton.style.margin = '0';
-    const removeButton = document.querySelector("#dummy-minus").cloneNode(true);
-    removeButton.removeAttribute('id');
-    removeButton.classList.add('remove-button');
-    removeButton.style.margin = '0';
-    removeButton.addEventListener('click',modifyQuantity);
-    const inputElement = document.createElement('input');
-    inputElement.classList.add('control');
-    inputElement.value = details.quantity;
-    inputElement.style.margin = '0';
-    inputElement.addEventListener('change',updateQuantity);
-    const priceP = document.createElement('p');
-    priceP.style.margin = '0';
-    priceP.style.fontSize = '14px';
-    priceP.style.color = '#1f2937';
-    priceP.textContent = '$'+details.price;
-    controls.appendChild(removeButton);
-    controls.appendChild(inputElement);
-    controls.appendChild(addButton);
-    detailsContainer.appendChild(flavorP);
-    detailsContainer.appendChild(controls);
-    container.appendChild(productImage);
-    container.appendChild(detailsContainer);
-    container.appendChild(priceP);
-    shoppingCartDisplay.appendChild(container);
+function updateShoppingCartDisplay(details){
+    
 }
