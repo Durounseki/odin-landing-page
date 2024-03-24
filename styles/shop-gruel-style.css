@@ -102,7 +102,7 @@ ul{
     width: 400px;
     max-height: 50vh;
     border-radius: 15px;
-    transform: translate(-385px,-15px);
+    transform: scale(0,0);
     background-color: white;
     box-shadow: -10px 10px 5px #85878b50;
     padding: 30px;
@@ -110,6 +110,15 @@ ul{
         margin: 0;
     }
     z-index: 1000;
+    /* Animate display*/
+    /* transform: scale(0,0); */
+    transform-origin: top left;
+    transition: transform 0.3s ease-in-out;
+}
+
+#shopping-cart-display.visible{
+    transform-origin: top left;
+    transform: scale(1,1) translate(-400px,0);
 }
 
 #display-header{

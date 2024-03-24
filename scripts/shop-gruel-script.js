@@ -294,3 +294,8 @@ function displayTotal(){
     const totalPrice = shoppingCartDisplay.querySelectorAll('#total-price p')[1];
     totalPrice.textContent = "$"+shoppingCart.totalPrice;
 }
+
+const shoppingCartButton = document.querySelector('#shopping-cart');
+shoppingCartButton.addEventListener('click',() => {
+    shoppingCartDisplay.classList.toggle('visible');
+});
