@@ -279,7 +279,7 @@ function newProductInDisplay(details){
     //Show price
     const priceTag = addedProduct.querySelectorAll('.display-price p');
     priceTag[0].textContent = "$"+details.price+" per item";
-    priceTag[1].textContent = "$"+ (details.price*details.quantity);
+    priceTag[1].textContent = "$"+ ((details.price*details.quantity).toFixed(2));
 
     addedProducts.appendChild(addedProduct);
     
@@ -293,7 +293,7 @@ function updateAddedProduct(productIndex,details){
     quantityInput.value = details.quantity
     //Update subtotal
     const subtotal = addedProduct.querySelectorAll('.display-price p')[1];
-    subtotal.textContent = "$"+ (details.price*details.quantity);
+    subtotal.textContent = "$"+ (details.price*details.quantity).toFixed(2);
     }else{
         addedProducts.removeChild(addedProduct);
         //If the cart is empty add the dummy container
@@ -307,34 +307,45 @@ const footerInfo = document.querySelectorAll('#info p');
 
 function displayTotal(){
     const continueButton = document.querySelector('#continue-button');
+    const checkoutButton = document.querySelector('#checkout-button');
+    const clearButton = document.querySelector('#clear-button');
 
-    const totalPrice = shoppingCart.totalPrice
+    const totalPrice = (+shoppingCart.totalPrice).toFixed(2)
     // //Show total on shopping cart
     const totalPriceDisplay = shoppingCartDisplay.querySelectorAll('#total-price p')[1];
     totalPriceDisplay.textContent = "$"+totalPrice;
 
     // //Display total on footer
-    footerInfo[0].textContent = "$"+totalPrice;
+    footerInfo[0].textContent = "$"+ totalPrice;
     if(totalPrice < 1){
-        continueButton.style.backgroundColor = "#85878b"
+        continueButton.style.backgroundColor = "#85878b";
+        checkoutButton.style.backgroundColor = "#85878b";
+        clearButton.style.backgroundColor = "#85878b";
     }else if(totalPrice < 70){
         footerInfo[1].textContent = "SPEND $70 TO GET FREE SHIPPING";
         footerInfo[1].style.color = "#85878b";
         footerInfo[2].style.color = "#85878b";
         footerInfo[2].textContent = "";
-        continueButton.style.backgroundColor = "#3882f6"
+        continueButton.style.backgroundColor = "#3882f6";
+        checkoutButton.style.backgroundColor = "#3882f6";
+        clearButton.style.backgroundColor = "#3882f6";
     }else if(totalPrice < 130){
         footerInfo[1].textContent = "FREE SHIPPING";
         footerInfo[1].style.color = "#e5e7eb";
         footerInfo[2].style.color = "#85878b";
         footerInfo[2].textContent = "SPEND $130 TO GET 10% OFF";
         continueButton.style.backgroundColor = "#3882f6"
+        checkoutButton.style.backgroundColor = "#3882f6";
+        clearButton.style.backgroundColor = "#3882f6";
     }else if(totalPrice > 130){
-        const discountedPrice = totalPrice * 0.9;
+        const discountedPrice = (totalPrice * 0.9).toFixed(2);
         footerInfo[0].innerHTML = `<span class="strikethrough">$${totalPrice}</span> $${discountedPrice}`
         footerInfo[2].textContent = "YOU GOT 10% OFF"
         footerInfo[2].style.color = "#e5e7eb";
         continueButton.style.backgroundColor = "#3882f6"
+        checkoutButton.style.backgroundColor = "#3882f6";
+        clearButton.style.backgroundColor = "#3882f6";
+        totalPriceDisplay.innerHTML = `<span class="strikethrough">$${totalPrice}</span> $${discountedPrice}`;
     }
 }
 
@@ -382,4 +393,19 @@ function showIndicators(details){
     }else{
         productIndicator.classList.remove('visible');
     }
+}
+
+const clearButton = document.querySelector('#clear-button');
+clearButton.addEventListener('click',clearShoppingCart);
+
+function clearShoppingCart(){
+    shoppingCart.addedProducts = [];
+    shoppingCart.totalPrice=shoppingCart.calculateTotal();
+    addedProducts.innerHTML = '';
+    addedProducts.appendChild(addedProductDummy);
+    displayTotal();
+    indicators.forEach(indicator => {
+        if(indicator.classList.contains('visible')){
+            indicator.classList.remove('visible');
+        }})
 }

@@ -12,12 +12,14 @@ The shopping page is inspired by the library assignment in TOP's JavaScript cour
 ## To-do-list
 
 * [x] Display the shopping cart.
-* [ ] Add a little tag to each product tab to show that products have been added to the shopping cart
+* [x] Add a little tag to each product tab to show that products have been added to the shopping cart
 * [ ] Show the selected products in the footer.
 * [x] Update the total price and the message on the footer.
-* [ ] Activate the continue button when the shopping cart has at least one item.
-* [ ] Show a little tag on the shopping cart icon indicating the number of items.
+* [x] Activate the continue button when the shopping cart has at least one item.
+* [x] Show a little tag on the shopping cart icon indicating the number of items.
 * [ ] Add empty cart button.
+* [ ] Activate controls on the shopping cart display.
+* [ ] Add payment page.
 
 ## Acknowledgements
 

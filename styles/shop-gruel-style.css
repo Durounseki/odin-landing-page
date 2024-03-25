@@ -147,6 +147,7 @@ ul{
 #checkout{
     display: flex;
     justify-content: flex-end;
+    gap: 5px;
 }
 
 #added-products{
@@ -230,8 +231,8 @@ ul{
     }
 }
 
-#checkout-button{
-    background-color: #3882f6;
+#checkout-button, #clear-button{
+    background-color: #85878b;
     color: #e5e7eb;
     border-radius: 5px;
     padding: 5px 10px;
