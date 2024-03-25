@@ -475,3 +475,50 @@ input.control{
 .strikethrough{
     text-decoration: line-through;
 }
+
+.indicator{
+    display: none;
+    border-radius: 50%;
+    font-size: 10px;
+    background-color: #e5e7eb;
+    color: #1f2937;
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    padding: 3px;
+    border: solid 1px #1f2937;
+    text-align: center;
+}
+
+.indicator.visible{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.indicator.active{
+    background-color: #3882f6;
+    color: #e5e7eb;
+}
+
+.indicator[name="shopping-cart"]{
+    transform: translate(-10px,-35px);
+    background-color: #3882f6;
+    color: #e5e7eb;
+}
+
+.indicator[name="white-edition"]{
+    transform: translate(100px,-15px);
+}
+
+.indicator[name="classic"]{
+    transform: translate(188px,-15px);
+}
+
+.indicator[name="on-the-go"]{
+    transform: translate(295px,-15px);
+}
+
+.indicator[name="bars"]{
+    transform: translate(363px,-15px);
+}

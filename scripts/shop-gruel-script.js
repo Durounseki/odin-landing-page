@@ -5,16 +5,23 @@ const productsContainer = document.querySelector("#products-container");
 const products = document.querySelectorAll(".product-container");
 const flavorsLists = document.querySelectorAll(".flavors");
 tabs.forEach(tab => tab.addEventListener('click', switchActiveProduct));
+const indicators = document.querySelectorAll('.indicator');
+const indicatorsArray = [...indicators];
 
 function switchActiveProduct(event){
+    
     clearContainer();
+
     const button=event.target;
     const product = document.querySelector(`.product-container[name=${button.getAttribute("name")}]`);
     const flavorsList = document.querySelector(`.flavors[name=${button.getAttribute("name")}]`);
+    const indicator = document.querySelector(`.indicator[name=${button.getAttribute("name")}]`);
+    
     //Display active product and show selected tab
     button.classList.add("active");
     product.classList.add("active");
     flavorsList.classList.add("active");
+    indicator.classList.add("active");
     //Scroll back to top
     productsContainer.scrollTo({
         top:0,
@@ -22,7 +29,7 @@ function switchActiveProduct(event){
     });
 }
 
-function clearContainer(){
+function clearContainer(indicator){
     tabs.forEach(tab => {
         if(tab.classList.contains("active")){
             tab.classList.remove("active");
@@ -36,6 +43,11 @@ function clearContainer(){
     flavorsLists.forEach(flavorsList => {
         if(flavorsList.classList.contains("active")){
             flavorsList.classList.remove("active");
+        }
+    });
+    indicatorsArray.forEach(indicator => {
+        if(indicator.classList.contains('active')){
+            indicator.classList.remove('active');
         }
     });
 }
@@ -123,6 +135,7 @@ function manageShoppingCart(details){
     //Update the total price
     shoppingCart.totalPrice=shoppingCart.calculateTotal();
     displayTotal();
+    showIndicators(details);
     // updateShoppingCartDisplay(details);
     // updateFooter();
     console.log(shoppingCart);
@@ -329,3 +342,44 @@ const shoppingCartButton = document.querySelector('#shopping-cart');
 shoppingCartButton.addEventListener('click',() => {
     shoppingCartDisplay.classList.toggle('visible');
 });
+
+//indicators
+function showIndicators(details){
+    const scIndicator = document.querySelector(`.indicator[name='shopping-cart']`);
+    const totalNumItems = shoppingCart.addedProducts.reduce((total,product) => {
+        return total + +product.quantity;
+    },0);
+    if(totalNumItems > 0){
+        if(!scIndicator.classList.contains('visible')){
+            scIndicator.classList.add('visible');
+        }
+        if(totalNumItems > 9){
+            scIndicator.innerHTML = "<div>9<sup>+</sup></div>"
+        }else{
+            scIndicator.textContent = totalNumItems;
+        }
+    }else{
+        scIndicator.classList.remove('visible');
+    }
+
+    const productIndicator = document.querySelector(`.indicator[name=${details.name}]`);
+    const numItems = shoppingCart.addedProducts.reduce((total,product) => {
+        if(product.name === details.name){
+            return total + +product.quantity;
+        }else{
+            return total;
+        }
+    },0);
+    if(numItems > 0){
+        if(!productIndicator.classList.contains('visible')){
+            productIndicator.classList.add('visible');
+        }
+        if(numItems > 9){
+            productIndicator.innerHTML = "<div>9<sup>+</sup></div>";
+        }else{
+            productIndicator.textContent = numItems;
+        }
+    }else{
+        productIndicator.classList.remove('visible');
+    }
+}
