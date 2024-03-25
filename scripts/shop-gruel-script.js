@@ -399,13 +399,21 @@ const clearButton = document.querySelector('#clear-button');
 clearButton.addEventListener('click',clearShoppingCart);
 
 function clearShoppingCart(){
+    //Clear display
     shoppingCart.addedProducts = [];
     shoppingCart.totalPrice=shoppingCart.calculateTotal();
     addedProducts.innerHTML = '';
     addedProducts.appendChild(addedProductDummy);
     displayTotal();
+    //Remove indicators
     indicators.forEach(indicator => {
         if(indicator.classList.contains('visible')){
             indicator.classList.remove('visible');
-        }})
+        }});
+    //Hide all controls
+    const controls = document.querySelectorAll('.controls');
+    controls.forEach(control => {
+        element = control.querySelector('.remove-button');
+        hideControls(element);
+    });
 }
