@@ -85,7 +85,7 @@ function addNewProduct(event){
     manageShoppingCart(details);
     //Remove event listener and show input element
     button.removeEventListener('click',addNewProduct);
-    showControls(button);
+    showControls(button,details);
 }
 
 function getProductDetails(element){
@@ -143,10 +143,11 @@ function manageShoppingCart(details){
 
 //Display input and remove-buttons
 //Use input value to update product quantity
-function showControls(button){
+function showControls(button,details){
     //Create the div wrapper
     const wrapper = document.createElement('div');
     wrapper.classList.add('controls');
+    wrapper.details = details;
     //Create an input to select the quantity of each product to add to the shopping cart
     const quantityInput = document.createElement('input');
     quantityInput.name = "quantity";
@@ -249,6 +250,10 @@ function newProductInDisplay(details){
     //Clone product container
     const addedProduct = addedProductDummy.cloneNode(true);
     addedProduct.removeAttribute('id');
+    addedProduct.name = `${details.name}`;
+    addedProduct.flavor = `${details.flavor}`;
+    addedProduct.quantity = `${details.quantity}`;
+    addedProduct.price = `${details.price}`;
 
     //Remove dummy container
     if(addedProducts.contains(addedProductDummy)){
@@ -282,7 +287,16 @@ function newProductInDisplay(details){
     priceTag[1].textContent = "$"+ ((details.price*details.quantity).toFixed(2));
 
     addedProducts.appendChild(addedProduct);
-    
+
+    //Add event listeners to update quantities
+    const addButton = addedProduct.querySelector('.plus');
+    const removeButton = addedProduct.querySelector('.minus');
+    // addButton.addEventListener('click',modifyAddedProductQuantity);
+    // removeButton.addEventListener('click',modifyAddedProductQuantity);
+    // quantityInput.addEventListener('change',updateAddedProductQuantity);
+    addButton.addEventListener('click',modifyTarget);
+    removeButton.addEventListener('click',modifyTarget);
+    quantityInput.addEventListener('change',modifyTarget);
 }
 
 function updateAddedProduct(productIndex,details){
@@ -416,4 +430,88 @@ function clearShoppingCart(){
         element = control.querySelector('.remove-button');
         hideControls(element);
     });
+}
+
+function getTargetElement(event){
+    let element;
+    if(event.value){
+        element = event.target;
+    }else{
+        element = event.target.tagName === 'svg' ? event.target : event.target.parentNode;
+    }
+    const details = getAddedProductDetails(element);
+    const controlElements = [...document.querySelectorAll('.controls')];
+    const targetElement = controlElements.find(control =>
+        control.details.name === details.name && control.details.flavor === details.flavor
+        );
+    return targetElement;
+}
+
+function modifyTarget(event){
+    
+    const targetElement = getTargetElement(event);
+    const clickEvent = new Event('click');
+    let element;
+    if(event.value){
+        element = event.target;
+        targetElement.value = element.value;
+    }else{
+        element = event.target.tagName === 'svg' ? event.target : event.target.parentNode;
+        let button;
+        if(element.classList.contains('plus')){
+            button = targetElement.querySelector('.add-button');
+        }else{
+            button = targetElement.querySelector('.remove-button');
+        }
+        button.dispatchEvent(clickEvent);
+    }
+}
+
+function modifyAddedProductQuantity(event){
+    const button = event.target.tagName === 'svg' ? event.target : event.target.parentNode;
+    const parentElement = button.parentNode;
+    const container = parentElement.parentNode;
+    const inputElement = container.querySelector('input');
+    if(button.classList.contains('plus')){
+        inputElement.value++;
+    }else{
+        inputElement.value--;
+    }
+    updateAddedProductQuantity(event);
+}
+
+function updateAddedProductQuantity(event){
+    let element;
+    if(event.value){
+        element = event.target;
+    }else{
+        element = event.target.tagName === 'svg' ? event.target : event.target.parentNode;
+    }
+    const details = getAddedProductDetails(element);
+    manageShoppingCart(details);
+    console.log(details);
+    //If the quantity = 0 then hide the remove button and input
+    if(details.quantity === '0'){
+        hideControls(element);
+    }
+}
+
+function getAddedProductDetails(element){
+    const addedProduct = element.closest('.added-product');
+    const name = addedProduct.name;
+    const price = addedProduct.price;
+    const flavor = addedProduct.flavor;
+    let quantity;
+    if(element.value){
+        addedProduct.quantity = element.value;
+        quantity = addedProduct.quantity;
+    }else if(element.classList.contains('plus')){
+        addedProduct.quantity++;
+        quantity = addedProduct.quantity;
+    }else{
+        addedProduct.quantity--;
+        quantity = addedProduct.quantity;
+    }
+    
+    return {name: name,price: price,flavor: flavor,quantity: quantity}
 }
