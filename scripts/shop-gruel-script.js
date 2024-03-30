@@ -184,7 +184,7 @@ function modifyQuantity(event){
 
 function updateQuantity(event){
     let element;
-    if(event.value){
+    if(event.target.value){
         element = event.target;
     }else{
         element = event.target.tagName === 'svg' ? event.target : event.target.parentNode;
@@ -434,7 +434,7 @@ function clearShoppingCart(){
 
 function getTargetElement(event){
     let element;
-    if(event.value){
+    if(event.target.value){
         element = event.target;
     }else{
         element = event.target.tagName === 'svg' ? event.target : event.target.parentNode;
@@ -452,9 +452,10 @@ function modifyTarget(event){
     const targetElement = getTargetElement(event);
     const clickEvent = new Event('click');
     let element;
-    if(event.value){
+    if(event.target.value){
         element = event.target;
-        targetElement.value = element.value;
+        const inputElement = targetElement.querySelector('input');
+        inputElement.value = element.value;
     }else{
         element = event.target.tagName === 'svg' ? event.target : event.target.parentNode;
         let button;
@@ -482,7 +483,7 @@ function modifyAddedProductQuantity(event){
 
 function updateAddedProductQuantity(event){
     let element;
-    if(event.value){
+    if(event.target.value){
         element = event.target;
     }else{
         element = event.target.tagName === 'svg' ? event.target : event.target.parentNode;
