@@ -367,6 +367,13 @@ const shoppingCartButton = document.querySelector('#shopping-cart');
 shoppingCartButton.addEventListener('click',() => {
     shoppingCartDisplay.classList.toggle('visible');
 });
+//Hide the display when clicking otside of it
+document.addEventListener('click', (event) => {
+    //The click didn't happen on the display or on the icon and the display is visible
+    if (!shoppingCartDisplay.contains(event.target) && !shoppingCartButton.contains(event.target) && shoppingCartDisplay.classList.contains('visible')) {
+      shoppingCartDisplay.classList.toggle('visible');
+    }
+  });
 
 //indicators
 function showIndicators(details){
@@ -516,3 +523,24 @@ function getAddedProductDetails(element){
     
     return {name: name,price: price,flavor: flavor,quantity: quantity}
 }
+
+//Alert message when continue or checkout button is clicked
+const continueButton = document.querySelector('#continue-button');
+const checkoutButton = document.querySelector('#checkout-button');
+
+continueButton.addEventListener('click',showCheckoutMessage);
+checkoutButton.addEventListener('click',showCheckoutMessage);
+
+const checkoutMessage = document.querySelector('#checkout-bg');
+
+function showCheckoutMessage(){
+    if(+shoppingCart.totalPrice > 0){
+        if(shoppingCartDisplay.classList.contains('visible')){
+            shoppingCartDisplay.classList.toggle('visible');
+        }
+        checkoutMessage.style.display = 'flex';
+    }
+}
+
+const closeIcon = document.querySelector(".close-icon");
+closeIcon.addEventListener('click',() => checkoutMessage.style.display = "none");

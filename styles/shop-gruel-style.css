@@ -113,7 +113,7 @@ ul{
     /* Animate display*/
     /* transform: scale(0,0); */
     transform-origin: top left;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
 
 #shopping-cart-display.visible{
@@ -522,4 +522,74 @@ input.control{
 
 .indicator[name="bars"]{
     transform: translate(363px,-15px);
+}
+
+/*Check out message*/
+
+#checkout-bg{
+    display: none;
+    background-color: rgba(50, 50, 50,0.4);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#checkout-message-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #E5E7EB;
+    box-shadow: 1vw 1vh 5px #5f6977;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60vw;
+    max-width: 600px;
+    height: 50vh;
+    max-height: 250px;
+    transform: translate(-50%,-50%);
+    border-radius: 2%;
+}
+
+#checkout-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#checkout-message h1{
+    font-size: 24px;
+}
+#checkout-message p{
+    margin-top: 0;
+    margin-bottom: 5vh;
+}
+
+#home-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-button{
+    width: 100px;
+    height: 30px;
+    background-color: #1f2937;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    margin-bottom: 2vh;
+}
+
+#home-button a{
+    color: #E5E7EB;
+    text-decoration: none;
+}
+
+.close-icon{
+    padding: 10px 10px;
+}
+.close-icon img{
+    width: 20px;
 }
